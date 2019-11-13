@@ -1,17 +1,20 @@
 <template>
     <div class="container">
         <div class="searchBar">
-            <label for="searchBar">Search</label>
-            <input type="text" name="search" id="" v-model="keyWord">
-            <button @click="filterGallery">Filter</button>
+          <label for="searchBar">Search</label>
+          <input type="text" name="search" id="" v-model="keyWord">
+          <button @click="filterGallery">Filter</button>
         </div>
+
         <div class="gallery">
-            <div class="gallery__item" v-for="card in galleryCards" :key="card.Name">
-              <h3>{{card.Name}}</h3>
-              <img :src="card.Url" :alt="hero" :class="gallery__image">
-              <h4>{{card.Type}}</h4>
-              <button @click="deleteKey(index)">Delete Entry</button>
-            </div>
+
+          <div class="gallery__item" v-for="(card, index) in galleryCards" :key="index">
+            <h3>{{card.Name}}</h3>
+            <img :src="card.Url" :alt="hero" :class="gallery__image">
+            <h4>{{card.Type}}</h4>
+            <button class="delKey" @click="deleteKey(index)">Delete Entry</button>
+          </div>
+
         </div>
     </div>
 </template>
@@ -22,6 +25,7 @@ export default {
         return{
           keyWord: '',
           hero:"Profile Image",
+          images:[],
           galleryCards:[
         {
           Name: "John Frusciante",
@@ -36,7 +40,7 @@ export default {
         {
           Name: "Foo Fighters",
           Type: "music",
-          Url: "http://static.tvmaze.com/uploads/images/original_untouched/60/151557.jpg"
+          Url: "http://static.tvmaze.com/uploads/images/original_untouched/60/151657.jpg"
         },
         {
           Name: "Pearl Jam",
@@ -46,12 +50,12 @@ export default {
         {
           Name: "Sublime",
           Type: "music",
-          Url: "http://static.tvmaze.com/uploads/images/original_untouched/60/151357.jpg"
+          Url: "http://static.tvmaze.com/uploads/images/original_untouched/60/152457.jpg"
         },
         {
           Name: "Inglourious Basterds",
           Type: "movie",
-          Url: "http://static.tvmaze.com/uploads/images/original_untouched/60/151357.jpg"
+          Url: "http://static.tvmaze.com/uploads/images/original_untouched/60/151257.jpg"
         },
         {
           Name: "Incubus",
@@ -137,11 +141,14 @@ export default {
   }
 </script>
 <style scoped>
+  .container{
+    margin-left: 230px;
+  }
   .gallery{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin: 10px;
-    width: 80%;
+    width: 800px;
     border: 2px solid black;
     border-radius: 15px;
   }
@@ -157,9 +164,11 @@ export default {
     margin: 10px;
   }
   .gallery__item > img{
+    min-height: 340px;
     width: 90%;
   }
   button{
     margin-bottom: 5px;
+    padding: 5px 15px;
   }
 </style>

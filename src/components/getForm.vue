@@ -6,7 +6,9 @@
                     <img :src="news.urlToImage" alt="News Image" class="newsImage">
                 </div>
                 <div class="card__item news__title">
-                    <h2>{{news.title}}</h2>
+                    <a :href="news.url">
+                        <h2>{{news.title}}</h2>
+                    </a>
                     <h5>{{news.author}}</h5>
                 </div>
                 <div class="card__item news__page">
@@ -58,6 +60,13 @@ export default {
     text-align: right;
     border-bottom: 1px solid gray;
 }
-.news__page{
+.news__title > a:link{
+    color: rgb(63, 47, 47);
+} 
+.news__title > a:visited{
+    color: rgb(46, 35, 45);
 }
+.news__title > a:hover{
+    color: rgb(82, 82, 73);
+} 
 </style>

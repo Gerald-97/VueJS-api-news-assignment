@@ -10,7 +10,7 @@
                     <h5>{{news.author}}</h5>
                 </div>
                 <div class="card__item news__page">
-                    <h3>{{news.description}}</h3>
+                    <h4>{{news.description}}</h4>
                     <p>{{news.content}}</p>
                 </div>
             </div>
@@ -38,18 +38,26 @@ export default {
 </script>
 <style scoped>
 .news__card{
-    width: 100%;
-    height: 10rem;
-    border-bottom: 1px solid grey;
+    padding-left: 10rem;
+    /* height: 20rem; */
+    border-bottom: 2px solid black;
     display: block;
+    background-color: beige;
+    margin-bottom: 5px;
 }
 .image__wrapper{
-    justify-content: right;
     width: 80%;
-    height: 5rem;
+    /* height: 10rem; */
 }
 .newsImage{
     width: 100%;
-    height: inherit;
+    /* max-height: 10rem; */
+    overflow: hidden;
+}
+.news__title{
+    text-align: right;
+    border-bottom: 1px solid gray;
+}
+.news__page{
 }
 </style>
